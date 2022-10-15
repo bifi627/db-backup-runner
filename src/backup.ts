@@ -30,7 +30,7 @@ const clean = async (path: string) => {
 }
 
 const uploadToStorage = async (filePath: string) => {
-    const destFileName = `${new Date().toISOString().slice(0, 13).replace(/-/g, "")}.tar.gz`
+    const destFileName = `database/backups/${new Date().toISOString().slice(0, 13).replace(/-/g, "")}.tar.gz`
     const bucket = getStorage(getApp()).bucket(getApp().options.storageBucket);
     await bucket.upload(filePath, { destination: destFileName });
 };
